@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Missões Aleatórias</title>
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+}
+
+body {
+background: linear-gradient(135deg, #141e30, #243b55);
+color: white;
+min-height: 100vh;
+}
+
+header {
+text-align: center;
+padding: 35px 15px;
+background: #101827;
+border-bottom: 3px solid #00c9a7;
+}
+
+header h1 {
+color: #00d6b2;
+margin-bottom: 10px;
+}
+
+.container {
+max-width: 850px;
+margin: auto;
+padding: 25px;
+}
+
+.card {
+background: #1c2c43;
+padding: 25px;
+border-radius: 14px;
+margin-bottom: 22px;
+box-shadow: 0 5px 15px #0004;
+}
+
+h2 {
+color: #00d6b2;
+margin-bottom: 15px;
+}
+
+p {
+line-height: 1.7;
+color: #dce5ef;
+}
+
+button {
+background: #00bfa6;
+color: #10202c;
+border: none;
+padding: 14px 20px;
+border-radius: 8px;
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 15px;
+}
+
+button:hover {
+background: #00e0c0;
+}
+
+#missao {
+background: #263b56;
+padding: 22px;
+border-radius: 10px;
+margin-top: 20px;
+text-align: center;
+font-size: 18px;
+min-height: 75px;
+}
+
+#categoria {
+color: #00d6b2;
+font-weight: bold;
+margin-top: 12px;
+}
+
+.fluxo {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+margin-top: 20px;
+}
+
+.etapa {
+background: #263b56;
+padding: 13px;
+border-radius: 8px;
+width: 85%;
+text-align: center;
+border: 1px solid #00bfa6;
+}
+
+.seta {
+color: #00d6b2;
+font-size: 22px;
+}
+
+ul {
+padding-left: 22px;
+line-height: 2;
+color: #dce5ef;
+}
+
+footer {
+text-align: center;
+padding: 25px;
+background: #101827;
+color: #aab8ca;
+}
+
+@media(max-width: 600px) {
+.container {
+padding: 15px;
+}
+
+.card {
+padding: 18px;
+}
+
+.etapa {
+width: 100%;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎲 Gerador de Missões Aleatórias</h1>
+<p>Descubra desafios e teste sua criatividade!</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+<h2>Sobre o projeto</h2>
+
+<p>
+Este projeto utiliza algoritmos de aleatoriedade
+para gerar missões diferentes a cada tentativa.
+O sistema utiliza JavaScript, condicionais,
+repetição e manipulação de textos.
+</p>
+</section>
+
+<section class="card">
+
+<h2>🚀 Gere sua missão</h2>
+
+<p>
+Clique no botão para receber uma missão aleatória.
+</p>
+
+<button onclick="gerarMissao()">
+Gerar nova missão
+</button>
+
+<div id="missao">
+Sua missão aparecerá aqui!
+</div>
+
+<p id="categoria"></p>
+
+<p id="quantidade"></p>
+
+</section>
+
+<section class="card">
+
+<h2>📊 Histórico de missões</h2>
+
+<p>Missões geradas durante esta sessão:</p>
+
+<ul id="historico">
+<li>Nenhuma missão gerada ainda.</li>
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>🔄 Como funciona o algoritmo?</h2>
+
+<p>
+O fluxograma abaixo representa a sequência
+de funcionamento do programa.
+</p>
+
+<div class="fluxo">
+
+<div class="etapa">
+INÍCIO
+</div>
+
+<div class="seta">↓</div>
+
+<div class="etapa">
+O usuário clica no botão
+</div>
+
+<div class="seta">↓</div>
+
+<div class="etapa">
+O sistema seleciona uma missão aleatória
+</div>
+
+<div class="seta">↓</div>
+
+<div class="etapa">
+Verifica a categoria usando condicionais
+</div>
+
+<div class="seta">↓</div>
+
+<div class="etapa">
+Exibe a missão na tela
+</div>
+
+<div class="seta">↓</div>
+
+<div class="etapa">
+FIM
+Pode gerar outra missão
+</div>
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>💻 Tecnologias utilizadas</h2>
+
+<ul>
+<li>HTML: estrutura da página.</li>
+<li>CSS: aparência e organização visual.</li>
+<li>JavaScript: funcionamento do programa.</li>
+<li>Math.random(): geração de números aleatórios.</li>
+<li>if e else: criação de condições.</li>
+<li>for...of: repetição e verificação dos dados.</li>
+<li>replace(): substituição de palavras.</li>
+<li>export e import: organização do código em módulos.</li>
+</ul>
+
+</section>
+
+</main>
+
+<footer>
+Projeto desenvolvido para fins educacionais.
+<br>
+Start by Alura
+</footer>
+
+<script type="module">
+
+// MÓDULO DE MISSÕES
+// Utilizando export e import no JavaScript.
+
+const codigoModulo = `
+export const missoes = [
+"Aprender uma nova habilidade hoje!",
+"Ler 10 páginas de um livro!",
+"Organizar seu espaço de estudos!",
+"Descobrir uma curiosidade científica!",
+"Resolver um desafio de lógica!",
+"Conhecer uma nova tecnologia!",
+"Estudar durante 30 minutos!",
+"Criar algo utilizando programação!",
+"Pesquisar sobre um assunto interessante!",
+"Aprender cinco palavras novas!"
+];
+
+export function sortearMissao(lista) {
+const indice = Math.floor(Math.random() * lista.length);
+return lista[indice];
+}
+`;
+
+// Importação dinâmica do módulo.
+const arquivoModulo = new Blob(
+[codigoModulo],
+{ type: "text/javascript" }
+);
+
+const enderecoModulo = URL.createObjectURL(arquivoModulo);
+
+const modulo = await import(enderecoModulo);
+
+const missoes = modulo.missoes;
+const sortearMissao = modulo.sortearMissao;
+
+// Histórico de missões.
+let historico = [];
+
+// Função principal.
+window.gerarMissao = function() {
+
+// Algoritmo de aleatoriedade.
+let missao = sortearMissao(missoes);
+
+// Método replace para substituir palavras.
+missao = missao.replace("hoje", "neste dia");
+
+// Estrutura condicional.
+let categoria = "";
+
+if (missao.includes("programação") ||
+missao.includes("tecnologia") ||
+missao.includes("lógica")) {
+
+categoria = "Categoria: Tecnologia";
+
+} else if (missao.includes("livro") ||
+missao.includes("Estudar") ||
+missao.includes("palavras")) {
+
+categoria = "Categoria: Educação";
+
+} else {
+
+categoria = "Categoria: Desenvolvimento pessoal";
+
+}
+
+// Exibição do resultado.
+document.getElementById("missao").textContent = missao;
+
+document.getElementById("categoria").textContent =
+categoria;
+
+// Armazenamento do histórico.
+historico.push(missao);
+
+// for...of para percorrer o histórico.
+let lista = "";
+
+for (const item of historico) {
+
+if (item !== "") {
+lista += "<li>" + item + "</li>";
+}
+
+}
+
+document.getElementById("historico").innerHTML = lista;
+
+document.getElementById("quantidade").textContent =
+"Total de missões geradas: " + historico.length;
+
+};
+
+</script>
+
+</body>
+</html>
